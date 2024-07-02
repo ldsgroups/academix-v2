@@ -3,18 +3,14 @@ import 'package:academix/themes/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:kinde_flutter_sdk/kinde_flutter_sdk.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load();
-  await KindeFlutterSDK.initializeSDK(
-    authDomain: dotenv.env['KINDE_AUTH_DOMAIN']!,
-    authClientId: dotenv.env['KINDE_AUTH_CLIENT_ID']!,
-    loginRedirectUri: dotenv.env['KINDE_LOGIN_REDIRECT_URI']!,
-    logoutRedirectUri: dotenv.env['KINDE_LOGOUT_REDIRECT_URI']!,
-    audience: dotenv.env['KINDE_AUDIENCE'],
-    scopes: ['email', 'profile', 'offline', 'openid'],
+  await Supabase.initialize(
+    url: dotenv.env['SUPABASE_URL']!,
+    anonKey: dotenv.env['SUPABASE_ANON_KEY']!,
   );
 
   runApp(const ProviderScope(child: CoreApp()));

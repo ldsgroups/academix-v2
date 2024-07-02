@@ -1,4 +1,5 @@
 import 'package:academix/core/router/router.dart' show RouteName;
+import 'package:academix/features/auth/viewmodel/auth_viewmodel.dart';
 import 'package:academix/features/chat/views/chat_view.dart';
 import 'package:academix/features/favorite/views/favorite_view.dart';
 import 'package:academix/features/home/views/home_view.dart';
@@ -16,6 +17,8 @@ final _sectionNavigatorKey = GlobalKey<NavigatorState>();
 
 @riverpod
 GoRouter router(RouterRef ref) {
+  final authState = ref.watch(currentUserIdProvider);
+
   final r = GoRouter(
     navigatorKey: _rootNavigatorKey,
     initialLocation: '/home',
@@ -67,6 +70,23 @@ GoRouter router(RouterRef ref) {
       ),
     ],
     errorBuilder: (_, __) => const NotFoundView(),
+    redirect: (context, state) {
+      authState.when(
+        error: (_, __) => null,
+        loading: () => null,
+        data: (isAuthenticated) {
+          print('IS AUTH: ${isAuthenticated ?? 'false'}');
+          switch (isAuthenticated) {
+            case null:
+              return '/login';
+            case '':
+              return '/login';
+            default:
+              return '/home';
+          }
+        },
+      );
+    },
   );
 
   ref.onDispose(r.dispose);

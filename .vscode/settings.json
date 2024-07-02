@@ -1,9 +1,19 @@
 {
+  "[typescript]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
   "cSpell.language": "en, fr",
   "cSpell.words": [
     "academix",
+    "fpdart",
     "Gamification",
     "kinde",
-    "Kinde"
-  ]
+    "Kinde",
+    "pkce"
+  ],
+  "deno.enablePaths": [
+    "supabase/functions"
+  ],
+  "deno.lint": true,
+  "deno.unstable": true
 }

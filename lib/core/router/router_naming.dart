@@ -5,4 +5,6 @@ class RouteName {
   static String profile = 'profile';
   static String splash = 'splash';
   static String notFound = 'not_found';
+  static String signIn = 'sing-in';
+  static String signUp = 'sing-up';
 }

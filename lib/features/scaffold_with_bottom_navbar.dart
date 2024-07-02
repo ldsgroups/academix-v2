@@ -18,7 +18,7 @@ class _ScaffoldWithBottomNavbarState
     extends ConsumerState<ScaffoldWithBottomNavbar> {
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    // final colorScheme = Theme.of(context).colorScheme;
 
     void _onChangeTab(int index) {
       widget.navigationShell.goBranch(
