@@ -18,7 +18,7 @@ class _ScaffoldWithBottomNavbarState
     extends ConsumerState<ScaffoldWithBottomNavbar> {
   @override
   Widget build(BuildContext context) {
-    // final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
     void _onChangeTab(int index) {
       widget.navigationShell.goBranch(
@@ -33,6 +33,7 @@ class _ScaffoldWithBottomNavbarState
         currentIndex: widget.navigationShell.currentIndex,
         onTap: _onChangeTab,
         type: BottomNavigationBarType.fixed,
+        // TODO: reduce splash on tap
         items: [
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
@@ -43,8 +44,8 @@ class _ScaffoldWithBottomNavbarState
               height: 24,
               colorFilter: ColorFilter.mode(
                 widget.navigationShell.currentIndex == 0
-                    ? Colors.blue
-                    : Colors.grey,
+                    ? colorScheme.onSecondaryContainer
+                    : colorScheme.secondaryContainer,
                 BlendMode.srcIn,
               ),
             ),
@@ -57,8 +58,8 @@ class _ScaffoldWithBottomNavbarState
                   : AssetConstants.chatSVG,
               colorFilter: ColorFilter.mode(
                 widget.navigationShell.currentIndex == 1
-                    ? Colors.blue
-                    : Colors.grey,
+                    ? colorScheme.onSecondaryContainer
+                    : colorScheme.secondaryContainer,
                 BlendMode.srcIn,
               ),
             ),
@@ -71,8 +72,8 @@ class _ScaffoldWithBottomNavbarState
                   : AssetConstants.favoriteSVG,
               colorFilter: ColorFilter.mode(
                 widget.navigationShell.currentIndex == 2
-                    ? Colors.blue
-                    : Colors.grey,
+                    ? colorScheme.onSecondaryContainer
+                    : colorScheme.secondaryContainer,
                 BlendMode.srcIn,
               ),
             ),
@@ -85,8 +86,8 @@ class _ScaffoldWithBottomNavbarState
                   : AssetConstants.profileSVG,
               colorFilter: ColorFilter.mode(
                 widget.navigationShell.currentIndex == 3
-                    ? Colors.blue
-                    : Colors.grey,
+                    ? colorScheme.onSecondaryContainer
+                    : colorScheme.secondaryContainer,
                 BlendMode.srcIn,
               ),
             ),
