@@ -1,3 +1,4 @@
+import 'package:academix/core/providers/providers.dart';
 import 'package:academix/core/router/router.dart';
 import 'package:academix/themes/themes.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,12 @@ Future<void> main() async {
     anonKey: dotenv.env['SUPABASE_ANON_KEY']!,
   );
 
-  runApp(const ProviderScope(child: CoreApp()));
+  runApp(
+    UncontrolledProviderScope(
+      container: riverpodContainer,
+      child: const CoreApp(),
+    ),
+  );
 }
 
 class CoreApp extends ConsumerWidget {

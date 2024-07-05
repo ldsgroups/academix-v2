@@ -1,7 +1,11 @@
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 part 'providers.g.dart';
+
+// riverpod container
+final riverpodContainer = ProviderContainer();
 
 // Supabase
 @riverpod
