@@ -1,4 +1,8 @@
 import 'package:academix/core/router/router.dart' show RouteName;
+import 'package:academix/features/auth/views/auth_check_view.dart';
+import 'package:academix/features/auth/views/complete_student_profile_view.dart';
+import 'package:academix/features/auth/views/sign_in_view.dart';
+import 'package:academix/features/auth/views/sign_up_view.dart';
 import 'package:academix/features/chat/views/chat_view.dart';
 import 'package:academix/features/favorite/views/favorite_view.dart';
 import 'package:academix/features/home/views/home_view.dart';
@@ -19,10 +23,30 @@ final _sectionNavigatorKey = GlobalKey<NavigatorState>();
 GoRouter router(RouterRef ref) {
   final r = GoRouter(
     navigatorKey: _rootNavigatorKey,
-    initialLocation: '/home',
+    initialLocation: '/auth-check',
     // initialLocation: _previousR?.routerDelegate.currentConfiguration.fullPath,
     // debugLogDiagnostics: true,
     routes: <RouteBase>[
+      GoRoute(
+        path: '/sign-in',
+        name: RouteName.signIn,
+        builder: (_, __) => const SignInView(),
+      ),
+      GoRoute(
+        path: '/sign-up',
+        name: RouteName.signUp,
+        builder: (_, __) => const SignUpView(),
+      ),
+      GoRoute(
+        path: '/auth-check',
+        name: RouteName.authCheck,
+        builder: (_, __) => const AuthCheckView(),
+      ),
+      GoRoute(
+        path: '/complete-student-profile',
+        name: RouteName.completeStudentProfile,
+        builder: (_, __) => const CompleteStudentProfileView(),
+      ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
           return ScaffoldWithBottomNavbar(navigationShell: navigationShell);

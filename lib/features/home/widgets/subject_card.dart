@@ -1,4 +1,3 @@
-import 'package:academix/core/utils/svg_from_text.dart';
 import 'package:academix/core/utils/utils.dart';
 import 'package:academix/models/models.dart';
 import 'package:flutter/material.dart';

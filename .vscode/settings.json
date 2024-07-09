@@ -5,13 +5,19 @@
   "cSpell.language": "en, fr",
   "cSpell.words": [
     "academix",
+    "Ascii",
     "fpdart",
     "Gamification",
     "grey",
+    "Iban",
     "kinde",
     "Kinde",
+    "ldsgroups",
     "LTRB",
-    "pkce"
+    "pkce",
+    "postgrest",
+    "unfocus",
+    "Uuid"
   ],
   "deno.enablePaths": [
     "supabase/functions"

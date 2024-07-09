@@ -34,4 +34,6 @@ class AssetConstants {
   static const String mathSVG = '$_svgPath/maths.svg';
   static const String numberSVG = '$_svgPath/number.svg';
   static const String sportSVG = '$_svgPath/sport.svg';
+  static const String googleSVG = '$_svgPath/google.svg';
+  static const String facebookSVG = '$_svgPath/facebook.svg';
 }

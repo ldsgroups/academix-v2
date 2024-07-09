@@ -7,4 +7,6 @@ class RouteName {
   static String notFound = 'not_found';
   static String signIn = 'sing-in';
   static String signUp = 'sing-up';
+  static String authCheck = 'auth-check';
+  static String completeStudentProfile = 'complete-student-profile';
 }

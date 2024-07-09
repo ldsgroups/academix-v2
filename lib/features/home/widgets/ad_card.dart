@@ -1,12 +1,14 @@
 import 'package:academix/core/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class AdCard extends StatelessWidget {
+class AdCard extends ConsumerWidget {
   const AdCard({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final colorScheme = Theme.of(context).colorScheme;
+
     return SizedBox(
       width: double.infinity,
       height: 110,
