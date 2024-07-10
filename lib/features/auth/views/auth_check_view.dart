@@ -14,7 +14,9 @@ class AuthCheckView extends HookConsumerWidget {
     final textTheme = Theme.of(context).textTheme;
 
     void _redirectTo(String path) {
-      context.pushReplacementNamed(path);
+      if (context.mounted) {
+        context.pushReplacementNamed(path);
+      }
     }
 
     Future<void> _checkAuthState() async {

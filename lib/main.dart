@@ -1,4 +1,3 @@
-import 'package:academix/core/providers/providers.dart';
 import 'package:academix/core/router/router.dart';
 import 'package:academix/themes/themes.dart';
 import 'package:flutter/material.dart';
@@ -9,17 +8,13 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load();
+
   await Supabase.initialize(
     url: dotenv.env['SUPABASE_URL']!,
     anonKey: dotenv.env['SUPABASE_ANON_KEY']!,
   );
 
-  runApp(
-    UncontrolledProviderScope(
-      container: riverpodContainer,
-      child: const CoreApp(),
-    ),
-  );
+  runApp(const ProviderScope(child: CoreApp()));
 }
 
 class CoreApp extends ConsumerWidget {
